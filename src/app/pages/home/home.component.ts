@@ -15,8 +15,19 @@ export class HomeComponent {
 
     products: Product[] = [];
 
-    constructor(private productService: ProductService) {
-      this.products = this.productService.getProducts().slice(0,3);
-    }
+    constructor(private productService: ProductService) 
+    {}
 
+    ngOnInit(): void {
+      this.aggiorna()
+    }
+    
+    aggiorna(): void {
+      this.productService.getProdotti().subscribe((data: any) => {
+        this.products = Object.keys(data).map((key) => { 
+          data[key]['id'] = key
+          return data[key] 
+        })
+      })
+    }
 }

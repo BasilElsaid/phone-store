@@ -17,13 +17,18 @@ export class ProductDetailsPageComponent {
     //  TAKEN FROM THE PRODUCT CARD
     selectedId: number | null = null;
   
-    constructor(private productService: ProductService, 
+    constructor(
+      private productService: ProductService, 
       private route: ActivatedRoute
     ) {}
 
     ngOnInit(): void {
-      const id = Number(this.route.snapshot.paramMap.get('id'));
-      this.product = this.productService.getProductById(id);
+      const id = this.route.snapshot.paramMap.get('id');
+      if(id){
+        this.productService.getProductById(id).subscribe((prodotto) => {
+          this.product = prodotto;
+        });
+      }
     }
 
 }
