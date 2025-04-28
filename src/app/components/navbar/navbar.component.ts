@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent {
 
-
   constructor(private darkModeService: DarkModeService) {}
 
   toggleDark(){
