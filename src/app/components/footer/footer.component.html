@@ -1,13 +1,13 @@
 
-<footer class="bg-body-tertiary">
+<footer class="" [ngClass]="isDarkMode() ? 'bg-dark' : 'bg-body-tertiary'">
     <div class="row p-3 align-items-center text-center d-flex justify-content-between">
         <!--CONTACT-->
         <div class="col-12 col-md-6 d-flex flex-column g-3">
             <h5 class="text-uppercase">Contact Us</h5>
-            <ul class="list-unstyled text-muted">
-              <li><i class="bi bi-geo-alt-fill"></i> 123 Tech Street, Mobile City</li>
-              <li><i class="bi bi-envelope-fill"></i> support&#64;smartshop.com</li>
-              <li><i class="bi bi-phone-fill"></i> +1 (555) 123-4567</li>
+            <ul class="list-unstyled" [ngClass]="isDarkMode() ? 'text-light' : 'text-muted'">             
+                <li><i class="bi bi-geo-alt-fill"></i> 123 Tech Street, Mobile City</li>
+                <li><i class="bi bi-envelope-fill"></i> support&#64;smartshop.com</li>
+                <li><i class="bi bi-phone-fill"></i> +1 (555) 123-4567</li>
             </ul>
         </div>
         <!--COPYRIGHT-->

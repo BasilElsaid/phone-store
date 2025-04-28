@@ -4,6 +4,7 @@ import { ProductService } from '../../services/product-service.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductCarouselComponent } from "../../components/product-carousel/product-carousel.component";
+import { DarkModeService } from '../../services/dark-mode-service.service';
 
 @Component({
   selector: 'app-product-details-page',
@@ -19,7 +20,8 @@ export class ProductDetailsPageComponent {
   
     constructor(
       private productService: ProductService, 
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
+      private darkModeService: DarkModeService
     ) {}
 
     ngOnInit(): void {
@@ -29,6 +31,11 @@ export class ProductDetailsPageComponent {
           this.product = prodotto;
         });
       }
+    }
+
+
+    isDarkMode(){
+      return this.darkModeService.isDarkMode();
     }
 
 }

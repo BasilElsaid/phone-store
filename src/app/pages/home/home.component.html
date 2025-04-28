@@ -1,6 +1,6 @@
 <div class="container p-4">
     <!--INTRO-->
-    <div class="row text-center">
+    <div class="row text-center intro">
         <div class="col-12">
             <h1 class="display-5 fw-bold mb-3">Explore the Latest Smartphones</h1>
             <p class="lead text-muted mb-4">
@@ -11,7 +11,7 @@
     </div>
     
     <!--TRENDING-->
-    <div class="p-4 m-5 bg-secondary-subtle rounded-5">
+    <div class="p-4 m-5 rounded-5 trending" [ngClass]="isDarkMode() ? 'bg-dark' : 'bg-body-secondary'">
         <div class="row">
             <div class="col-12 my-2">
                 <span class="badge text-bg-danger">Trending</span>
