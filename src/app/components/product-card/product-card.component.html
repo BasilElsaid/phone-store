@@ -1,0 +1,13 @@
+
+<div class="card shadow-sm w-100 h-100 rounded-4">
+  <img [src]="productCard.imageUrl" class="card-img-top h-100 rounded-top-4" alt="{{ productCard.name }}">
+  <div class="card-body">
+    <h5 class="card-title text-center">{{ productCard.name }}</h5>
+    <!-- Conditionally render button -->
+    <div *ngIf="showDetailsButton" class="text-center mt-2">
+      <button class="btn btn-primary" (click)="showButton()">
+        {{selectedProductId === productCard.id ? 'Hide Details' : 'Show Details'}}
+      </button>
+    </div>
+  </div>
+</div>

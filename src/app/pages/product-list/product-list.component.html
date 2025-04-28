@@ -1,0 +1,35 @@
+<div class="container p-4">
+    <!--INTRO-->
+    <div class="row text-center">
+        <div class="col-12">
+            <h1 class="display-5 fw-bold mb-3">Our Smartphones</h1>
+            <p class="lead text-muted mb-4">
+                From flagship powerhouses to budget-friendly favorites — find the phone that fits your lifestyle.
+            </p>
+            <hr class="w-25 mx-auto">
+        </div>
+    </div>
+    <div class="p-4 m-5 bg-secondary-subtle rounded-5">
+        <!--CARDS-->
+        <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4" *ngFor="let product of products">
+                <app-product-card 
+                [productCard]="product"
+                [selectedProductId]="selectedId"
+                [showDetailsButton]="true"
+                (toggle)="onToggle($event)"
+                >
+                </app-product-card>
+            </div>
+        </div>
+        <!--DETAILS-->  
+        <div class="row" *ngIf="selectedProduct">
+            <div class="col-12">
+                <app-product-details
+                [product]="selectedProduct">
+            </app-product-details>
+            </div>
+        </div>
+    </div>
+
+</div>

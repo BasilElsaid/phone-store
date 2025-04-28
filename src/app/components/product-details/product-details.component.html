@@ -1,0 +1,19 @@
+<div class="container py-5">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-5">
+          <img [src]="product?.imageUrl" class="img-fluid rounded-start" alt="{{ product?.name }}">
+        </div>
+        <div class="col-md-7">
+          <div class="card-body">
+            <h2 class="card-title">{{ product?.name }}</h2>
+            <h4 class="text-success">${{ product?.price }}</h4>
+            <p class="card-text">{{ product?.description }}</p>
+            <a [routerLink]="['/products', product?.id]" class="btn btn-primary mt-2">
+              View Full Details
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

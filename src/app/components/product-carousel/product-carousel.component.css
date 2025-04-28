@@ -1,0 +1,10 @@
+.carousel-wrapper {
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .carousel-wrapper img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
