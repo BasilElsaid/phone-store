@@ -15,13 +15,25 @@ export class ProductListComponent {
 
   products: Product[] = [];
   //  TAKEN FROM THE PRODUCT CARD
-  selectedId: number | null = null;
+  selectedId: string | null = null;
 
-  constructor(private productService: ProductService) {
-    this.products = this.productService.getProducts();
+  constructor(private productService: ProductService) 
+  {}
+
+  ngOnInit(): void {
+    this.aggiorna()
+  }
+  
+  aggiorna(): void {
+    this.productService.getProdotti().subscribe((data: any) => {
+      this.products = Object.keys(data).map((key) => { 
+        data[key]['id'] = key
+        return data[key] 
+      })
+    })
   }
 
-  onToggle(id: number) {
+  onToggle(id: string) {
     this.selectedId = this.selectedId === id ? null : id;
   }
 

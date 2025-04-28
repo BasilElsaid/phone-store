@@ -12,8 +12,8 @@ export class ProductCardComponent {
   
   
   @Input() productCard!: Product;
-  @Input() selectedProductId: number | null = null;
-  @Output() toggle = new EventEmitter<number>();
+  @Input() selectedProductId: string | null = null;
+  @Output() toggle = new EventEmitter<string>();
 
   @Input() showDetailsButton: boolean = true;
 

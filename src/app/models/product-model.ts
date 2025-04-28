@@ -1,7 +1,7 @@
 import { ProductSpecs } from "./product-specs";
 
 export interface Product {
-    id: number | undefined;
+    id: string | undefined;
     name: string | undefined;
     description: string | undefined;
     price: number | undefined;
