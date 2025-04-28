@@ -7,7 +7,7 @@
         </div>
     </div>
     <!--INFO SECTION-->
-    <div class="row p-3 bg-secondary-subtle rounded-3 my-2">
+    <div class="row p-3 rounded-3 my-2" [ngClass]="isDarkMode() ? 'bg-dark' : 'bg-body-secondary'">
         <div class="col-12 col-md-7">
             <div class="card-body">
               <h2 class="card-title">{{ product?.name }}</h2>
@@ -17,7 +17,7 @@
           </div>
     </div>
     <!--SPECS SECTION-->
-    <div class="row p-3 bg-secondary-subtle rounded-3 my-2">
+    <div class="row p-3 rounded-3 my-2" [ngClass]="isDarkMode() ? 'bg-dark' : 'bg-body-secondary'">
         <div class="col-12 col-md-5 mb-3 mb-md-0">
             <span class="badge text-bg-success col m-2">Specifications:</span>
             <ul>

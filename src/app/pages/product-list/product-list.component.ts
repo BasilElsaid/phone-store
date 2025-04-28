@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product-service.service';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { ProductDetailsComponent } from '../../components/product-details/product-details.component';
+import { DarkModeService } from '../../services/dark-mode-service.service';
 
 @Component({
   selector: 'app-product-list',
@@ -17,20 +18,19 @@ export class ProductListComponent {
   //  TAKEN FROM THE PRODUCT CARD
   selectedId: string | null = null;
 
-  constructor(private productService: ProductService) 
+  constructor(
+    private productService: ProductService,
+    private darkModeService: DarkModeService
+  ) 
   {}
 
   ngOnInit(): void {
-    this.aggiorna()
-  }
-  
-  aggiorna(): void {
     this.productService.getProdotti().subscribe((data: any) => {
       this.products = Object.keys(data).map((key) => { 
         data[key]['id'] = key
         return data[key] 
       })
-    })
+    })  
   }
 
   onToggle(id: string) {
@@ -39,5 +39,10 @@ export class ProductListComponent {
 
   get selectedProduct(): Product | undefined {
     return this.products.find(p => p.id === this.selectedId);
+  }
+
+
+  isDarkMode(){
+    return this.darkModeService.isDarkMode();
   }
 }

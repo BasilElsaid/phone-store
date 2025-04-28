@@ -1,0 +1,11 @@
+:host-context(body.dark-mode) .card {
+    background-color: #1e1e2f; /* Dark background for card */
+    color: aliceblue;
+    border-color: #2e2e42;
+  }
+  
+  :host-context(body.dark-mode) .card .card-title,
+  :host-context(body.dark-mode) .card .card-text,
+  :host-context(body.dark-mode) .card a {
+    color: aliceblue !important;
+  }
