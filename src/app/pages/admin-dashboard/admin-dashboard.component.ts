@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductService } from '../../services/product-service.service';
+import { DarkModeService } from '../../services/dark-mode-service.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -16,7 +17,8 @@ isSubmitting: boolean = false;
 
 constructor(
   private fb: FormBuilder,
-  private productService: ProductService
+  private productService: ProductService,
+  private darkModeService: DarkModeService
 ){}
 
 ngOnInit(): void {
@@ -63,6 +65,10 @@ onSubmit(): void {
   } else {
     console.log('Form is invalid');
   }
+}
+
+isDarkMode(){
+  return this.darkModeService.isDarkMode();
 }
 
 }
