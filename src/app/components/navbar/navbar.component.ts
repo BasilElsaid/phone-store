@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DarkModeService } from '../../services/dark-mode-service.service';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,10 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent {
 
-  constructor(private darkModeService: DarkModeService) {}
+  constructor(
+    private darkModeService: DarkModeService,
+    private authService: AuthService
+  ) {}
 
   toggleDark(){
     this.darkModeService.toggleDarkMode();
@@ -18,6 +22,10 @@ export class NavbarComponent {
 
   isDarkMode(){
     return this.darkModeService.isDarkMode();
+  }
+
+  checkAdminAccess() {
+    return this.authService.checkAdmin();
   }
 
 }
