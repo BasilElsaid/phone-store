@@ -1,0 +1,56 @@
+<div class="container p-4 bg-body-secondary my-4 rounded-4">
+    <div>
+        <h1 class="text-center my-2 text-danger">
+            Admin Form
+        </h1>
+    </div>
+    <div>
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+            <hr class="my-3">
+            <h3>Basic Info</h3>
+
+            <!-- Basic Info -->
+            <div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" formControlName="description"></textarea>
+                  </div>
+                  <div class="mb-3">
+                      <label for="price" class="form-label">Price</label>
+                      <input type="number" class="form-control" id="price" formControlName="price">
+                    </div>
+                    <div class="mb-3">
+                      <label for="imageUrl" class="form-label">Image URL</label>
+                      <input type="text" class="form-control" id="imageUrl" formControlName="imageUrl">
+                </div>
+            </div>
+
+            <hr class="my-3">
+            <h3>Specs</h3>
+
+            <!-- Specs -->
+            <div formGroupName="specs" class="row my-2">
+                <div class="mb-3">
+                    <input formControlName="chipset" placeholder="Chipset" class="form-control mb-3"/>
+                    <input formControlName="display" placeholder="Display" class="form-control mb-3"/>
+                    <input formControlName="camera" placeholder="Camera" class="form-control mb-3"/>
+                    <input formControlName="frontCamera" placeholder="Front Camera" class="form-control mb-3"/>
+                    <input formControlName="battery" placeholder="Battery" class="form-control mb-3"/>
+                    <input formControlName="charging" placeholder="Charging" class="form-control mb-3"/>
+                    <input formControlName="os" placeholder="OS" class="form-control mb-3"/>
+                    <input formControlName="build" placeholder="Build" class="form-control mb-3"/>
+                </div>
+            </div>
+
+            <div class="row my-2">
+                <button type="submit" class="btn btn-success" [disabled]="isSubmitting">Submit</button>
+            </div>
+          </form>
+    </div>
+
+</div>

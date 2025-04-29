@@ -1,0 +1,22 @@
+<div class="container p-4">
+    <h2 class="text-center">Unlock Admin Access</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="password" class="form-label">Enter Admin Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Submit</button>
+  
+      <div *ngIf="errorMessage" class="text-danger mt-3">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
