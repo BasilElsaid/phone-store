@@ -7,10 +7,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const authService = inject(AuthService);
 
-  const storedPassword = localStorage.getItem('isAdmin') || '';
-  const isAdmin = authService.isAdmin(storedPassword);
-
-  if (isAdmin) {
+  if (authService.checkAdmin()) {
     return true;
   } else {
     router.navigate(['/home']);
