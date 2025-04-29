@@ -5,7 +5,7 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { ProductDetailsPageComponent } from './pages/product-details-page/product-details-page.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { adminGuard } from './guards/admin.guard';
-import { AdminUnlockComponent } from './components/admin-unlock/admin-unlock.component';
+import { AdminUnlockComponent } from './pages/admin-unlock/admin-unlock.component';
 
 export const routes: Routes = [
     {
