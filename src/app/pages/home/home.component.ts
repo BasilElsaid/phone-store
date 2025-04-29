@@ -27,8 +27,9 @@ export class HomeComponent {
         this.products = Object.keys(data).map((key) => { 
           data[key]['id'] = key
           return data[key] 
-        })
-      })    }
+        }).slice(0, 3);
+      })    
+    }
 
     isDarkMode(){
       return this.darkModeService.isDarkMode();
