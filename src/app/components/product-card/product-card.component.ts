@@ -13,12 +13,27 @@ export class ProductCardComponent {
   
   @Input() productCard!: Product;
   @Input() selectedProductId: string | null = null;
+
   @Output() toggle = new EventEmitter<string>();
 
   @Input() showDetailsButton: boolean = true;
 
-  showButton() {
+  @Input() showUpdateButton: boolean = false;
+  @Output() updateClicked = new EventEmitter<string>();
+
+  @Input() showDeleteButton: boolean = false;
+  @Output() deleteClicked = new EventEmitter<string>();
+
+
+  showDetails() {
     this.toggle.emit(this.productCard.id);
   }
 
+  showUpdate() {
+    this.updateClicked.emit(this.productCard.id);
+  }
+
+  showDelete() {
+    this.deleteClicked.emit(this.productCard.id);
+  }
 }

@@ -18,7 +18,7 @@
             <a class="nav-link" href="adminUnlock" [ngClass]="isDarkMode() ? 'text-light' : ''">Admin</a>
           </li>
           <li class="nav-item" *ngIf="checkAdminAccess()">
-            <a class="nav-link" href="admin" [ngClass]="isDarkMode() ? 'text-light' : ''">Admin Area</a>
+            <a class="nav-link" href="adminDashboard" [ngClass]="isDarkMode() ? 'text-light' : ''">Admin Area</a>
           </li>
           <li>
             <a class="nav-link"  (click)="toggleDark()">

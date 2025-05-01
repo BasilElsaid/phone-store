@@ -23,7 +23,7 @@ export class AdminUnlockComponent {
     if (this.authService.isAdmin(this.password)) {
       alert('Correct password!');
       localStorage.setItem('isAdmin', this.password);
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/adminDashboard']);
     } else {
       alert('Incorrect password');
     }
