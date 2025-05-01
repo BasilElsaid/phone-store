@@ -6,6 +6,8 @@ import { ProductDetailsPageComponent } from './pages/product-details-page/produc
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { adminGuard } from './guards/admin.guard';
 import { AdminUnlockComponent } from './pages/admin-unlock/admin-unlock.component';
+import { AdminInsertComponent } from './pages/admin-insert/admin-insert.component';
+import { AdminUpdateComponent } from './pages/admin-update/admin-update.component';
 
 export const routes: Routes = [
     {
@@ -30,12 +32,23 @@ export const routes: Routes = [
         component: ProductDetailsPageComponent
     },
     {
-        path: "admin", 
+        path: "adminUnlock", 
+        component: AdminUnlockComponent
+    },
+    {
+        path: "adminDashboard", 
         component: AdminDashboardComponent, 
         canActivate: [adminGuard]
     },
     {
-        path: "adminUnlock", 
-        component: AdminUnlockComponent
+        path: "adminInsert", 
+        component: AdminInsertComponent, 
+        canActivate: [adminGuard]
     },
+    { 
+        path: 'adminUpdate/:id', 
+        component: AdminUpdateComponent,
+        canActivate: [adminGuard] 
+    }
+
 ];
