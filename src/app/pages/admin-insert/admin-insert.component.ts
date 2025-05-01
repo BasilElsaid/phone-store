@@ -4,10 +4,11 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { ProductService } from '../../services/product-service.service';
 import { DarkModeService } from '../../services/dark-mode-service.service';
 import { RouterLink } from '@angular/router';
+import { AdminProductFormComponent } from '../../components/admin-product-form/admin-product-form.component';
 
 @Component({
   selector: 'app-admin-insert',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, AdminProductFormComponent],
   templateUrl: './admin-insert.component.html',
   styleUrl: './admin-insert.component.css'
 })
