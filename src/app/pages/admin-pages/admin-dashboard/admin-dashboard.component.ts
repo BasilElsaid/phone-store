@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { DarkModeService } from '../../services/dark-mode-service.service';
 import { Router, RouterLink } from '@angular/router';
-import { Product } from '../../models/product-model';
-import { ProductService } from '../../services/product-service.service';
-import { ProductCardComponent } from '../../components/product-card/product-card.component';
+import { ProductCardComponent } from '../../../components/product-card/product-card.component';
+import { Product } from '../../../models/product-model';
+import { ProductService } from '../../../services/product-service.service';
+import { DarkModeService } from '../../../services/dark-mode-service.service';
+
 
 @Component({
   selector: 'app-admin-dashboard',

@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ProductService } from '../../services/product-service.service';
-import { DarkModeService } from '../../services/dark-mode-service.service';
-import { AdminProductFormComponent } from '../../components/admin-product-form/admin-product-form.component';
+import { AdminProductFormComponent } from '../../../components/admin-product-form/admin-product-form.component';
+import { ProductService } from '../../../services/product-service.service';
+import { DarkModeService } from '../../../services/dark-mode-service.service';
+
 
 @Component({
   selector: 'app-admin-insert',

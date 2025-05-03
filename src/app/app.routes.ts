@@ -3,11 +3,11 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { ProductDetailsPageComponent } from './pages/product-details-page/product-details-page.component';
-import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { adminGuard } from './guards/admin.guard';
-import { AdminUnlockComponent } from './pages/admin-unlock/admin-unlock.component';
-import { AdminInsertComponent } from './pages/admin-insert/admin-insert.component';
-import { AdminUpdateComponent } from './pages/admin-update/admin-update.component';
+import { AdminUnlockComponent } from './pages/admin-pages/admin-unlock/admin-unlock.component';
+import { AdminDashboardComponent } from './pages/admin-pages/admin-dashboard/admin-dashboard.component';
+import { AdminInsertComponent } from './pages/admin-pages/admin-insert/admin-insert.component';
+import { AdminUpdateComponent } from './pages/admin-pages/admin-update/admin-update.component';
 
 export const routes: Routes = [
     {

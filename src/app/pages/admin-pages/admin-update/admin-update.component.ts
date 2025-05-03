@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ProductService } from '../../services/product-service.service';
-import { DarkModeService } from '../../services/dark-mode-service.service';
-import { Product } from '../../models/product-model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { AdminProductFormComponent } from '../../components/admin-product-form/admin-product-form.component';
+import { AdminProductFormComponent } from '../../../components/admin-product-form/admin-product-form.component';
+import { Product } from '../../../models/product-model';
+import { ProductService } from '../../../services/product-service.service';
+import { DarkModeService } from '../../../services/dark-mode-service.service';
 
 @Component({
   selector: 'app-admin-insert',
