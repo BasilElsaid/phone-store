@@ -42,7 +42,7 @@ export class AdminDashboardComponent {
   }
 
   navigateToUpdate(id: string) {
-    this.router.navigate(['/adminUpdate', id]);
+    this.router.navigate(['admin/update', id]);
   }
 
   onDelete(productId: string) {
