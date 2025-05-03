@@ -16,4 +16,5 @@ export class AdminProductFormComponent {
   @Input() title: string = 'Product Form';
   @Input() onSubmitFn!: () => void;
   @Input() isDarkMode: boolean = false;
+  @Input() images: any;
 }

@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductService } from '../../services/product-service.service';
 import { DarkModeService } from '../../services/dark-mode-service.service';
-import { RouterLink } from '@angular/router';
 import { AdminProductFormComponent } from '../../components/admin-product-form/admin-product-form.component';
 
 @Component({
   selector: 'app-admin-insert',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, AdminProductFormComponent],
+  imports: [CommonModule, ReactiveFormsModule, AdminProductFormComponent],
   templateUrl: './admin-insert.component.html',
   styleUrl: './admin-insert.component.css'
 })
@@ -44,6 +43,10 @@ ngOnInit(): void {
       this.fb.control('')
     ])
   });
+}
+
+get images(): FormArray {
+  return this.productForm.get('images') as FormArray;
 }
 
 onSubmit(): void {

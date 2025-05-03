@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductService } from '../../services/product-service.service';
 import { DarkModeService } from '../../services/dark-mode-service.service';
 import { Product } from '../../models/product-model';
@@ -9,7 +9,7 @@ import { AdminProductFormComponent } from '../../components/admin-product-form/a
 
 @Component({
   selector: 'app-admin-insert',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, AdminProductFormComponent],
+  imports: [CommonModule, ReactiveFormsModule, AdminProductFormComponent],
   templateUrl: './admin-update.component.html',
   styleUrl: './admin-update.component.css'
 })
@@ -50,10 +50,15 @@ ngOnInit(): void {
           charging: prodotto.specs?.charging || '',
           os: prodotto.specs?.os || '',
           build: prodotto.specs?.build || ''
-        }
+        },
       });
+
+      // Patch the images FormArray
+      const imageControls = prodotto.images.map((img: string) => this.fb.control(img));
+      this.productForm.setControl('images', this.fb.array(imageControls));
     });
   }
+  
 
   // Form init (keep as is)
   this.productForm = this.fb.group({
@@ -76,6 +81,10 @@ ngOnInit(): void {
       this.fb.control('')
     ])
   });
+}
+
+get images(): FormArray {
+  return this.productForm.get('images') as FormArray;
 }
 
 onUpdate(): void {

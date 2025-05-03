@@ -10,6 +10,7 @@
     </div>
   
     <div>
+      <!-- BASIC INFO-->
       <form [formGroup]="form" (ngSubmit)="onSubmitFn()">
         <hr class="my-3">
         <h3>Basic Info</h3>
@@ -32,6 +33,7 @@
           </div>
         </div>
   
+        <!-- SPECS -->
         <hr class="my-3">
         <h3>Specs</h3>
         <div formGroupName="specs" class="row my-2">
@@ -46,7 +48,21 @@
             <input formControlName="build" placeholder="Build" class="form-control mb-3" />
           </div>
         </div>
+
+        <!-- IMAGES -->
+        <hr class="my-3">
+        <h3>Image Gallery</h3>
+        <div formArrayName="images" class="mb-3">
+          <div *ngFor="let img of images.controls; let i = index" class="mb-2">
+            <input
+              [formControlName]="i"
+              class="form-control"
+              placeholder="Image URL {{ i + 1 }}"
+            />
+          </div>
+        </div>
   
+        <!-- SUBMIT BUTTON-->
         <div class="row my-2">
           <button type="submit" class="btn btn-success" [disabled]="isSubmitting">{{ submitLabel }}</button>
         </div>
