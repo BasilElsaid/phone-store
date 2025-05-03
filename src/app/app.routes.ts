@@ -35,20 +35,32 @@ export const routes: Routes = [
         path: "adminUnlock", 
         component: AdminUnlockComponent
     },
-    {
-        path: "adminDashboard", 
-        component: AdminDashboardComponent, 
-        canActivate: [adminGuard]
-    },
-    {
-        path: "adminInsert", 
-        component: AdminInsertComponent, 
-        canActivate: [adminGuard]
+    { 
+        path: 'admin', 
+        canActivateChild: [adminGuard],
+        children: [
+            { 
+                path: '', 
+                redirectTo: 'dashboard', 
+                pathMatch: 'full' 
+            },
+            {
+                path: "dashboard", 
+                component: AdminDashboardComponent, 
+            },
+            {
+                path: "insert", 
+                component: AdminInsertComponent, 
+            },
+            { 
+                path: 'update/:id', 
+                component: AdminUpdateComponent,
+            },
+        ]
     },
     { 
-        path: 'adminUpdate/:id', 
-        component: AdminUpdateComponent,
-        canActivate: [adminGuard] 
+        path: '**', 
+        redirectTo: 'home' 
     }
 
 ];
