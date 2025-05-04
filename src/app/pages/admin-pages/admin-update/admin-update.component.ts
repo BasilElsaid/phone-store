@@ -38,6 +38,7 @@ ngOnInit(): void {
       this.product = prodotto;
       this.productForm.patchValue({
         name: prodotto.name,
+        brand: prodotto.brand,
         description: prodotto.description,
         price: prodotto.price,
         imageUrl: prodotto.imageUrl,
@@ -63,6 +64,7 @@ ngOnInit(): void {
   // Form init (keep as is)
   this.productForm = this.fb.group({
     name: ['', Validators.required],
+    brand: ['', Validators.required],
     description: ['', Validators.required],
     price: [null, [Validators.required, Validators.min(0)]],
     imageUrl: ['', Validators.required],
@@ -77,6 +79,7 @@ ngOnInit(): void {
       build: ['']
     }),
     images: this.fb.array([
+      this.fb.control(''),
       this.fb.control(''),
       this.fb.control('')
     ])

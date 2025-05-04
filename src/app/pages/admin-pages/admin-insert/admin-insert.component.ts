@@ -26,6 +26,7 @@ constructor(
 ngOnInit(): void {
   this.productForm = this.fb.group({
     name: ['', Validators.required],
+    brand: ['', Validators.required],
     description: ['', Validators.required],
     price: [null, [Validators.required, Validators.min(0)]],
     imageUrl: ['', Validators.required],
@@ -40,6 +41,7 @@ ngOnInit(): void {
       build: ['']
     }),
     images: this.fb.array([
+      this.fb.control(''),
       this.fb.control(''),
       this.fb.control('')
     ])
