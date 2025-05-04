@@ -1,11 +1,23 @@
+/* Normal light mode hover */
+.card:hover {
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode card styling */
 :host-context(body.dark-mode) .card {
-  background-color: #1e1e2f; /* Dark background for card */
+  background-color: #1e1e2f;
   color: aliceblue;
   border-color: #2e2e42;
 }
 
-:host-context(body.dark-mode) .card .card-title,
-:host-context(body.dark-mode) .card .card-text,
-:host-context(body.dark-mode) .card a {
-  color: aliceblue !important;
+/* Dark mode hover */
+:host-context(body.dark-mode) .card:hover {
+  background-color: #2a2a3d;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
