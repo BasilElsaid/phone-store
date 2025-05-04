@@ -52,4 +52,18 @@ export class ProductService {
       body
     );
   }
+
+  getProductsArray() {
+    return this.getProdotti().pipe(
+      map((data: any) => {
+        const prodotti: Product[] = [];
+        Object.keys(data).forEach((key) => {
+          data[key]['id'] = key;
+          prodotti.push(data[key]);
+        });
+        return prodotti;
+      })
+    );
+  }
+  
 }

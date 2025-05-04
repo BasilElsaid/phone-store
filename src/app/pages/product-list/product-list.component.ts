@@ -25,12 +25,9 @@ export class ProductListComponent {
   {}
 
   ngOnInit(): void {
-    this.productService.getProdotti().subscribe((data: any) => {
-      this.products = Object.keys(data).map((key) => { 
-        data[key]['id'] = key
-        return data[key] 
-      })
-    })  
+    this.productService.getProductsArray().subscribe((products) => {
+      this.products = products;
+    });    
   }
 
   onToggle(id: string) {
