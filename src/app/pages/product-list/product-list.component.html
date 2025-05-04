@@ -11,7 +11,7 @@
     </div>
     <div class="p-4 m-5 rounded-5" [ngClass]="isDarkMode() ? 'bg-dark' : 'bg-body-secondary'">
         <!--CARDS-->
-        <div class="row g-3">
+        <div class="row d-flex justify-content-evenly g-3">
             <div class="col-12 col-md-6 col-lg-4" *ngFor="let product of products">
                 <app-product-card 
                 [productCard]="product"
