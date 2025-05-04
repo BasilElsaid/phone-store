@@ -3,7 +3,7 @@ import { Product } from '../../models/product-model';
 import { ProductService } from '../../services/product-service.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ProductCarouselComponent } from "../../components/product-carousel/product-carousel.component";
+import { ProductCarouselComponent } from "../../components/products-components/product-carousel/product-carousel.component";
 import { DarkModeService } from '../../services/dark-mode-service.service';
 
 @Component({

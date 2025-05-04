@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../../models/product-model';
 import { RouterLink } from '@angular/router';
-import { DarkModeService } from '../../services/dark-mode-service.service';
+
 import { CommonModule } from '@angular/common';
+import { Product } from '../../../models/product-model';
+import { DarkModeService } from '../../../services/dark-mode-service.service';
 
 @Component({
   selector: 'app-product-details',
