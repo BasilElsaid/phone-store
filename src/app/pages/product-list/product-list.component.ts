@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Product } from '../../models/product-model';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product-service.service';
-import { ProductCardComponent } from '../../components/product-card/product-card.component';
-import { ProductDetailsComponent } from '../../components/product-details/product-details.component';
+
 import { DarkModeService } from '../../services/dark-mode-service.service';
+import { ProductCardComponent } from '../../components/products-components/product-card/product-card.component';
+import { ProductDetailsComponent } from '../../components/products-components/product-details/product-details.component';
 
 @Component({
   selector: 'app-product-list',
