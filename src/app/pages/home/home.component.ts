@@ -34,7 +34,12 @@ export class HomeComponent {
 
 
     getAppleHot(): Product[] {
-      return this.products.filter(phone => phone.brand === 'Apple');
+      return this.products.filter(phone => phone.brand === 'Apple').slice(0, 1);
+    }
+
+
+    getAndroidPhones(): Product[] {
+      return this.products.filter(phone => phone.brand !== 'Apple').slice(0, 1);
     }
 
     isDarkMode(){

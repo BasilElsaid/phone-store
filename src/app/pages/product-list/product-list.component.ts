@@ -15,8 +15,8 @@ import { DarkModeService } from '../../services/dark-mode-service.service';
 export class ProductListComponent {
 
   products: Product[] = [];
-  //  TAKEN FROM THE PRODUCT CARD
   selectedId: string | null = null;
+  filter: 'All' | 'Apple' | 'Android' = 'All';
 
   constructor(
     private productService: ProductService,
@@ -42,4 +42,27 @@ export class ProductListComponent {
   isDarkMode(){
     return this.darkModeService.isDarkMode();
   }
+
+  setFilter(type: 'All' | 'Apple' | 'Android') {
+    this.filter = type;
+  }
+
+  get filteredProducts(): Product[] {
+    if (this.filter === 'Apple') {
+      return this.getApplePhones();
+    } else if (this.filter === 'Android') {
+      return this.getAndroidPhones();
+    }
+    return this.products;
+  }
+
+  getAndroidPhones(): Product[] {
+    return this.products.filter(phone => phone.brand !== 'Apple');
+  }
+
+
+  getApplePhones(): Product[] {
+    return this.products.filter(phone => phone.brand === 'Apple');
+  }
+
 }

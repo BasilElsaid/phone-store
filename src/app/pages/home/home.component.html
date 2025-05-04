@@ -32,6 +32,8 @@
         </div>
     </div>
 
+    <hr class="w-25 mx-auto">
+
     <!-- TOP IPHONES -->
     <div class="p-4 m-5 rounded-5" [ngClass]="isDarkMode() ? 'bg-dark' : 'bg-body-secondary'">
         <div class="row">
@@ -40,13 +42,41 @@
             </div>
         </div>
         <div class="row d-flex justify-content-evenly g-3">
-            <div class="col-12 col-md-6 col-lg-4" *ngFor="let product of getAppleHot()">
-                <app-product-card 
-                [productCard]="product"
-                [showDetailsButton]="false">
-                </app-product-card>
+            <a href="/products/0" class="no-link-style">
+                <div class="mx-auto" *ngFor="let product of getAppleHot()">
+                    <app-product-card 
+                    [productCard]="product"
+                    [showDetailsButton]="false">
+                    </app-product-card>
+                </div>
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-12 my-3 text-center">
+                <span><strong>For More Visit our Producsts Page</strong></span>
             </div>
         </div>
+    </div>
+
+    <hr class="w-25 mx-auto">
+
+    <!-- TOP ANDROID -->
+    <div class="p-4 m-5 rounded-5" [ngClass]="isDarkMode() ? 'bg-dark' : 'bg-body-secondary'">
+        <div class="row">
+            <div class="col-12 my-2">
+                <span class="badge text-bg-danger">Hot Android</span>
+            </div>
+        </div>
+        <a href="/products/1" class="no-link-style">
+            <div class="row d-flex justify-content-evenly g-3">
+                <div class="mx-auto" *ngFor="let product of getAndroidPhones()">
+                    <app-product-card 
+                    [productCard]="product"
+                    [showDetailsButton]="false">
+                    </app-product-card>
+                </div>
+            </div>
+        </a>
         <div class="row">
             <div class="col-12 my-3 text-center">
                 <span><strong>For More Visit our Producsts Page</strong></span>
