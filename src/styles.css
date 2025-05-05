@@ -21,3 +21,14 @@ body.dark-mode label,
 body.dark-mode button {
     color: aliceblue !important;
 }
+
+/* Target dropdown items in dark mode */
+.dropdown-menu.bg-dark .dropdown-item {
+    color: white;
+}
+
+.dropdown-menu.bg-dark .dropdown-item:hover,
+.dropdown-menu.bg-dark .dropdown-item:focus {
+background-color: #444;
+    color: white;
+}
