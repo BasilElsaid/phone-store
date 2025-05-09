@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" [ngClass]="isDarkMode() ? 'bg-dark' : 'bg-body-tertiary'">
+<nav class="navbar navbar-expand-lg" appDarkModeBackground>
   <div class="container-fluid">
 
       <!--LOGO-->
@@ -15,19 +15,19 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/about']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'text-light' : ''">About</a>
+            <a class="nav-link" [routerLink]="['/about']" routerLinkActive="router-link-active">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/products']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'text-light' : ''">Products</a>
+            <a class="nav-link" [routerLink]="['/products']" routerLinkActive="router-link-active">Products</a>
           </li>
 
           <!--ADMIN BUTTONS-->
           <ng-container>
             <li class="nav-item" *ngIf="!checkAdminAccess()">
-              <a class="nav-link" [routerLink]="['/adminUnlock']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'text-light' : ''">Admin</a>
+              <a class="nav-link" [routerLink]="['/adminUnlock']" routerLinkActive="router-link-active">Admin</a>
             </li>
             <li class="nav-item" *ngIf="checkAdminAccess()">
-              <a class="nav-link" [routerLink]="['/admin/dashboard']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'text-light' : ''">Admin Area</a>
+              <a class="nav-link" [routerLink]="['/admin/dashboard']" routerLinkActive="router-link-active">Admin Area</a>
             </li>
           </ng-container>
 

@@ -4,11 +4,11 @@ import { ProductService } from '../../services/product-service.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductCarouselComponent } from "../../components/products-components/product-carousel/product-carousel.component";
-import { DarkModeService } from '../../services/dark-mode-service.service';
+import { DarkModeBackgroundDirective } from '../../directives/dark-mode-background.directive';
 
 @Component({
   selector: 'app-product-details-page',
-  imports: [CommonModule, RouterLink, ProductCarouselComponent],
+  imports: [CommonModule, RouterLink, ProductCarouselComponent, DarkModeBackgroundDirective],
   templateUrl: './product-details-page.component.html',
   styleUrl: './product-details-page.component.css'
 })
@@ -21,7 +21,6 @@ export class ProductDetailsPageComponent {
     constructor(
       private productService: ProductService, 
       private route: ActivatedRoute,
-      private darkModeService: DarkModeService
     ) {}
 
     ngOnInit(): void {
@@ -31,11 +30,6 @@ export class ProductDetailsPageComponent {
           this.product = prodotto;
         });
       }
-    }
-
-
-    isDarkMode(){
-      return this.darkModeService.isDarkMode();
     }
 
 }

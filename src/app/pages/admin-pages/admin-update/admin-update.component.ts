@@ -5,7 +5,6 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AdminProductFormComponent } from '../../../components/admin-product-form/admin-product-form.component';
 import { Product } from '../../../models/product-model';
 import { ProductService } from '../../../services/product-service.service';
-import { DarkModeService } from '../../../services/dark-mode-service.service';
 
 @Component({
   selector: 'app-admin-insert',
@@ -25,7 +24,6 @@ isUpdating: boolean = false;
 constructor(
   private fb: FormBuilder,
   private productService: ProductService,
-  private darkModeService: DarkModeService,
   private route: ActivatedRoute,
 ){}
 
@@ -111,10 +109,6 @@ onUpdate(): void {
   } else {
     console.log('Form is invalid');
   }
-}
-
-isDarkMode(){
-  return this.darkModeService.isDarkMode();
 }
 
 }
