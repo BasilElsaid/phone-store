@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AdminProductFormComponent } from '../../../components/admin-product-form/admin-product-form.component';
 import { ProductService } from '../../../services/product-service.service';
-import { DarkModeService } from '../../../services/dark-mode-service.service';
 
 
 @Component({
@@ -20,7 +19,6 @@ isSubmitting: boolean = false;
 constructor(
   private fb: FormBuilder,
   private productService: ProductService,
-  private darkModeService: DarkModeService
 ){}
 
 ngOnInit(): void {
@@ -73,10 +71,6 @@ onSubmit(): void {
   } else {
     console.log('Form is invalid');
   }
-}
-
-isDarkMode(){
-  return this.darkModeService.isDarkMode();
 }
 
 }

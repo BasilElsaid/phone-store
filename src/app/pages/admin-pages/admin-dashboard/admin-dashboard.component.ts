@@ -3,13 +3,13 @@ import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { Product } from '../../../models/product-model';
 import { ProductService } from '../../../services/product-service.service';
-import { DarkModeService } from '../../../services/dark-mode-service.service';
 import { ProductCardComponent } from '../../../components/products-components/product-card/product-card.component';
+import { DarkModeBackgroundDirective } from '../../../directives/dark-mode-background.directive';
 
 
 @Component({
   selector: 'app-admin-dashboard',
-  imports: [CommonModule, RouterLink, ProductCardComponent],
+  imports: [CommonModule, RouterLink, ProductCardComponent, DarkModeBackgroundDirective],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.css'
 })
@@ -21,7 +21,6 @@ export class AdminDashboardComponent {
 
   constructor(
     private productService: ProductService,
-    private darkModeService: DarkModeService,
     private router: Router
   ){}
 
@@ -29,10 +28,6 @@ export class AdminDashboardComponent {
     this.productService.getProductsArray().subscribe((products) => {
       this.products = products;
     });    
-  }
-
-  isDarkMode(){
-    return this.darkModeService.isDarkMode();
   }
 
   showProductsButton(){

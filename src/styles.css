@@ -4,6 +4,13 @@ body.dark-mode{
     color: aliceblue;
 }
 
+body.dark-mode .navbar,
+body.dark-mode .nav-link,
+body.dark-mode .navbar-brand,
+body.dark-mode .navbar-toggler {
+  color: #f8f9fa !important;
+}
+
 /* Target dropdown items in dark mode */
 .dropdown-menu.bg-dark .dropdown-item {
     color: white;

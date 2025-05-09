@@ -2,14 +2,13 @@ import { Component } from '@angular/core';
 import { Product } from '../../models/product-model';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product-service.service';
-
-import { DarkModeService } from '../../services/dark-mode-service.service';
 import { ProductCardComponent } from '../../components/products-components/product-card/product-card.component';
 import { ProductDetailsComponent } from '../../components/products-components/product-details/product-details.component';
+import { DarkModeBackgroundDirective } from '../../directives/dark-mode-background.directive';
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProductCardComponent, CommonModule, ProductDetailsComponent],
+  imports: [ProductCardComponent, CommonModule, ProductDetailsComponent, DarkModeBackgroundDirective],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
@@ -21,7 +20,6 @@ export class ProductListComponent {
 
   constructor(
     private productService: ProductService,
-    private darkModeService: DarkModeService
   ) 
   {}
 
@@ -37,11 +35,6 @@ export class ProductListComponent {
 
   get selectedProduct(): Product | undefined {
     return this.products.find(p => p.id === this.selectedId);
-  }
-
-
-  isDarkMode(){
-    return this.darkModeService.isDarkMode();
   }
 
   setFilter(type: 'All' | 'Apple' | 'Android') {

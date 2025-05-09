@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Product } from '../../models/product-model';
 import { ProductService } from '../../services/product-service.service';
-import { DarkModeService } from '../../services/dark-mode-service.service';
 import { ProductCardComponent } from '../../components/products-components/product-card/product-card.component';
+import { DarkModeBackgroundDirective } from '../../directives/dark-mode-background.directive';
 
 @Component({
   selector: 'app-home',
-  imports: [ProductCardComponent, CommonModule, RouterLink],
+  imports: [ProductCardComponent, CommonModule, RouterLink, DarkModeBackgroundDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -18,7 +18,6 @@ export class HomeComponent {
 
     constructor(
       private productService: ProductService,
-      private darkModeService: DarkModeService
     ) 
     {}
 
@@ -42,7 +41,4 @@ export class HomeComponent {
       return this.products.filter(phone => phone.brand !== 'Apple').slice(0, 1);
     }
 
-    isDarkMode(){
-      return this.darkModeService.isDarkMode();
-    }
 }

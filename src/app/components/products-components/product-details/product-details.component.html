@@ -1,6 +1,6 @@
 <div class="container py-5">
     <div class="card mb-3">
-      <div class="row g-0" [ngClass]="isDarkMode() ? 'bg-black' : 'bg-white'">
+      <div class="row g-0" [ngClass]="isDarkMode() ? 'bg-dark-subtle text-white' : 'bg-primary-subtle'">
         <div class="col-md-5">
           <img [src]="product?.imageUrl" class="img-fluid rounded-start" alt="{{ product?.name }}">
         </div>
