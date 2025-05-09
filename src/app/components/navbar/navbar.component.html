@@ -13,21 +13,21 @@
 
       <!--LINKS-->
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
+        <ul class="navbar-nav mx-auto" [ngClass]="isDarkMode() ? 'dark-links' : ''">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/about']" routerLinkActive="router-link-active">About</a>
+            <a class="nav-link" [routerLink]="['/about']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'dark-links' : ''">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/products']" routerLinkActive="router-link-active">Products</a>
+            <a class="nav-link" [routerLink]="['/products']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'dark-links' : ''">Products</a>
           </li>
 
           <!--ADMIN BUTTONS-->
           <ng-container>
             <li class="nav-item" *ngIf="!checkAdminAccess()">
-              <a class="nav-link" [routerLink]="['/adminUnlock']" routerLinkActive="router-link-active">Admin</a>
+              <a class="nav-link" [routerLink]="['/adminUnlock']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'dark-links' : ''">Admin</a>
             </li>
             <li class="nav-item" *ngIf="checkAdminAccess()">
-              <a class="nav-link" [routerLink]="['/admin/dashboard']" routerLinkActive="router-link-active">Admin Area</a>
+              <a class="nav-link" [routerLink]="['/admin/dashboard']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'dark-links' : ''">Admin Area</a>
             </li>
           </ng-container>
 
