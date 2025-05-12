@@ -22,7 +22,7 @@ export class ProductDetailsPageComponent {
   constructor(
     private productService: ProductService, 
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
   ) {}
 
   ngOnInit(): void {
