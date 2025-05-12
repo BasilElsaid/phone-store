@@ -2,16 +2,21 @@
     <div class="card mb-3">
       <div class="row g-0" [ngClass]="isDarkMode() ? 'bg-dark-subtle text-white' : 'bg-primary-subtle'">
         <div class="col-md-5">
-          <img [src]="product?.imageUrl" class="img-fluid rounded-start" alt="{{ product?.name }}">
+          <img [src]="product.imageUrl" class="img-fluid rounded-start" alt="{{ product.name }}">
         </div>
         <div class="col-md-7">
           <div class="card-body">
-            <h2 class="card-title">{{ product?.name }}</h2>
-            <h4 class="text-success">${{ product?.price }}</h4>
-            <p class="card-text">{{ product?.description }}</p>
-            <a [routerLink]="['/products', product?.id]" class="btn btn-primary mt-2">
+            <h2 class="card-title">{{ product.name }}</h2>
+            <h4 class="text-success">${{ product.price }}</h4>
+            <p class="card-text">{{ product.description }}</p>
+            <a [routerLink]="['/products', product.id]" class="btn btn-outline-primary mt-2 col-12">
               View Full Details
             </a>
+
+            <!-- ADD TO CART BUTTON-->
+            <button class="btn btn-success mt-2 col-12" (click)="addToCart()">
+              Add To Cart
+            </button>
           </div>
         </div>
       </div>

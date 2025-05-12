@@ -8,6 +8,7 @@ import { AdminUnlockComponent } from './pages/admin-pages/admin-unlock/admin-unl
 import { AdminDashboardComponent } from './pages/admin-pages/admin-dashboard/admin-dashboard.component';
 import { AdminInsertComponent } from './pages/admin-pages/admin-insert/admin-insert.component';
 import { AdminUpdateComponent } from './pages/admin-pages/admin-update/admin-update.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
 export const routes: Routes = [
     {
@@ -30,6 +31,10 @@ export const routes: Routes = [
     {
         path: "products/:id", 
         component: ProductDetailsPageComponent
+    },
+    {
+        path: "cart", 
+        component: CartPageComponent
     },
     {
         path: "adminUnlock", 

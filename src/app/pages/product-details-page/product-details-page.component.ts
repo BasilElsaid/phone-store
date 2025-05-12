@@ -5,6 +5,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductCarouselComponent } from "../../components/products-components/product-carousel/product-carousel.component";
 import { DarkModeBackgroundDirective } from '../../directives/dark-mode-background.directive';
+import { CartService } from '../../services/cart-service.service';
 
 @Component({
   selector: 'app-product-details-page',
@@ -14,22 +15,27 @@ import { DarkModeBackgroundDirective } from '../../directives/dark-mode-backgrou
 })
 export class ProductDetailsPageComponent {
 
-   product: Product | undefined;
-    //  TAKEN FROM THE PRODUCT CARD
-    selectedId: number | null = null;
-  
-    constructor(
-      private productService: ProductService, 
-      private route: ActivatedRoute,
-    ) {}
+  product!: Product;
+  //  TAKEN FROM THE PRODUCT CARD
+  selectedId: number | null = null;
 
-    ngOnInit(): void {
-      const id = this.route.snapshot.paramMap.get('id');
-      if(id){
-        this.productService.getProductById(id).subscribe((prodotto) => {
-          this.product = prodotto;
-        });
-      }
+  constructor(
+    private productService: ProductService, 
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) {}
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if(id){
+      this.productService.getProductById(id).subscribe((prodotto) => {
+        this.product = prodotto;
+      });
     }
+  }
+
+  addToCart() {
+    this.cartService.addProduct(this.product.id!);
+  }
 
 }

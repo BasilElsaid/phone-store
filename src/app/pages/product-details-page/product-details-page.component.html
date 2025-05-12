@@ -1,18 +1,26 @@
 <div class="container">
 
+    <!--Back to Products-->
+    <div class="col my-3">
+        <button type="button" class="btn btn-outline-primary"
+        [routerLink]="['/products']">Back To Products</button>
+    </div>
+
+    <hr>
+
     <!--IMAGE SECTION-->
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-12 col-md-6">
-            <img [src]="product?.imageUrl" class="img-fluid" alt="{{ product?.name }}">
+            <img [src]="product.imageUrl" class="img-fluid" alt="{{ product.name }}">
         </div>
     </div>
     <!--INFO SECTION-->
     <div class="row p-3 rounded-3 my-2" appDarkModeBackground>
         <div class="col-12 col-md-7">
             <div class="card-body">
-              <h2 class="card-title">{{ product?.name }}</h2>
-              <h4 class="text-success">${{ product?.price }}</h4>
-              <p class="card-text">{{ product?.description }}</p>
+              <h2 class="card-title">{{ product.name }}</h2>
+              <h4 class="text-success">${{ product.price }}</h4>
+              <p class="card-text">{{ product.description }}</p>
             </div>
           </div>
     </div>
@@ -21,28 +29,30 @@
         <div class="col-12 col-md-5 mb-3 mb-md-0">
             <span class="badge text-bg-success col m-2">Specifications:</span>
             <ul>
-                <li><strong>Chipset:</strong> {{ product?.specs?.chipset }}</li>
-                <li><strong>Display:</strong> {{ product?.specs?.display }}</li>
-                <li><strong>Camera:</strong> {{ product?.specs?.camera }}</li>
-                <li><strong>Front Camera:</strong> {{ product?.specs?.frontCamera }}</li>
-                <li><strong>Battery:</strong> {{ product?.specs?.battery }}</li>
-                <li><strong>Charging:</strong> {{ product?.specs?.charging }}</li>
-                <li *ngIf="product?.specs?.extras"><strong>Extras:</strong> {{ product?.specs?.extras }}</li>
-                <li><strong>OS:</strong> {{ product?.specs?.os }}</li>
+                <li><strong>Chipset:</strong> {{ product.specs?.chipset }}</li>
+                <li><strong>Display:</strong> {{ product.specs?.display }}</li>
+                <li><strong>Camera:</strong> {{ product.specs?.camera }}</li>
+                <li><strong>Front Camera:</strong> {{ product.specs?.frontCamera }}</li>
+                <li><strong>Battery:</strong> {{ product.specs?.battery }}</li>
+                <li><strong>Charging:</strong> {{ product.specs?.charging }}</li>
+                <li *ngIf="product.specs?.extras"><strong>Extras:</strong> {{ product.specs?.extras }}</li>
+                <li><strong>OS:</strong> {{ product.specs?.os }}</li>
             </ul>
         </div>
         <div class="col-12 col-md-7">
             <!--CAROUSEL-->
             <span class="badge text-bg-success col-3 m-2">Gallery:</span>
-            <app-product-carousel [images]="product?.images || []"></app-product-carousel>
+            <app-product-carousel [images]="product.images || []"></app-product-carousel>
         </div>
     </div>
 
-    <!--Back to Products-->
-    <div class="row my-5">
-        <div class="col text-center">
-            <button type="button" class="btn btn-outline-primary"
-            [routerLink]="['/products']">Back To Products</button>
-        </div>
+    <hr>
+
+    <!-- ADD TO CART BUTTON-->
+    <div class="row m-4 text-center" (click)="addToCart()">
+        <button type="button" class="btn btn-success">
+            Add To Cart
+        </button>
     </div>
+
 </div>
