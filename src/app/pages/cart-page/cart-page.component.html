@@ -1,0 +1,55 @@
+<div class="container p-4 my-4 rounded-4">
+
+    <!-- BACK TO PRODUCTS -->
+    <div class="col my-3">
+        <button type="button" class="btn btn-outline-primary"
+        [routerLink]="['/products']">Back To Products</button>
+    </div>
+
+    <!-- TITLE -->
+    <div class="row text-center">
+        <h1>Cart</h1>
+    </div>
+
+    <hr>
+
+    <!-- CARDS AND QUANTITIES-->
+
+    <div class="container rounded-4 py-3" appDarkModeBackground>
+        <div class="row text-center mx-2 text-success">
+            <div class="col-8">
+                <h3>Phone</h3>
+            </div>
+            <div class="col-4">
+                <h3>Quantity</h3>
+            </div>
+        </div>
+
+        <hr>
+        
+        <div class="d-flex flex-row justify-content-between mx-2" *ngFor="let prodotto of products">
+            <div class="col-8 p-2">
+                <app-product-card 
+                [productCard]="prodotto"
+                [selectedProductId]="selectedId"
+                [showDetailsButton]="false"
+                >
+                </app-product-card>
+            </div>
+            <div class="col-4 p-2 text-center d-flex flex-column align-items-center justify-content-evenly">
+                <h4>x1</h4>
+                <button type="button" class="btn btn-danger" (click)="deleteProduct(prodotto.id!)">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- BUT BUTTON -->
+    <div class="row text-center">
+        <button type="button" class="btn btn-success">
+            Proceed to Payment
+        </button>
+    </div>
+
+</div>

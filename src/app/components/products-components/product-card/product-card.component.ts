@@ -24,7 +24,6 @@ export class ProductCardComponent {
   @Input() showDeleteButton: boolean = false;
   @Output() deleteClicked = new EventEmitter<string>();
 
-
   showDetails() {
     this.toggle.emit(this.productCard.id);
   }
