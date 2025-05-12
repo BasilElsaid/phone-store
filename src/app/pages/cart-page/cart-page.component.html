@@ -30,7 +30,7 @@
         <hr>
         
         <div class="d-flex flex-row justify-content-between mx-2" *ngFor="let prodotto of products">
-            <div class="col-8 p-2">
+            <div class="col-8 p-2" >
                 <app-product-card 
                 [productCard]="prodotto"
                 [selectedProductId]="selectedId"
@@ -48,7 +48,7 @@
     <hr>
 
     <!-- CART FLOATING BUTTON -->
-    <div class="row text-center">
+    <div class="container row text-center">
         <button type="button" class="btn btn-success">
             Proceed to Payment
         </button>
