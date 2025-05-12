@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { DarkModeBackgroundDirective } from '../../directives/dark-mode-background.directive';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { ProductService } from '../../services/product-service.service';
 import { Product } from '../../models/product-model';
 import { ProductCardComponent } from '../../components/products-components/product-card/product-card.component';

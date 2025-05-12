@@ -5,10 +5,11 @@ import { ProductService } from '../../services/product-service.service';
 import { ProductCardComponent } from '../../components/products-components/product-card/product-card.component';
 import { ProductDetailsComponent } from '../../components/products-components/product-details/product-details.component';
 import { DarkModeBackgroundDirective } from '../../directives/dark-mode-background.directive';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProductCardComponent, CommonModule, ProductDetailsComponent, DarkModeBackgroundDirective],
+  imports: [ProductCardComponent, CommonModule, ProductDetailsComponent, DarkModeBackgroundDirective, RouterLink],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
