@@ -6,6 +6,7 @@ import { ProductCardComponent } from '../../components/products-components/produ
 import { ProductDetailsComponent } from '../../components/products-components/product-details/product-details.component';
 import { DarkModeBackgroundDirective } from '../../directives/dark-mode-background.directive';
 import { RouterLink } from '@angular/router';
+import { CartService } from '../../services/cart-service.service';
 
 @Component({
   selector: 'app-product-list',
@@ -18,16 +19,22 @@ export class ProductListComponent {
   products: Product[] = [];
   selectedId: string | null = null;
   filter: 'All' | 'Apple' | 'Android' = 'All';
+  cartItemsCount: number = 0;
 
   constructor(
     private productService: ProductService,
+    private cartService: CartService
   ) 
   {}
 
   ngOnInit(): void {
     this.productService.getProductsArray().subscribe((products) => {
       this.products = products;
-    });    
+    });
+
+    this.cartService.cartItemCount$.subscribe(count => {
+      this.cartItemsCount = count;
+    });   
   }
 
   onToggle(id: string) {

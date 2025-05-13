@@ -18,6 +18,7 @@ export class ProductDetailsPageComponent {
   product!: Product;
   //  TAKEN FROM THE PRODUCT CARD
   selectedId: number | null = null;
+  cartItemsCount: number = 0;
 
   constructor(
     private productService: ProductService, 
@@ -27,15 +28,20 @@ export class ProductDetailsPageComponent {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if(id){
+    if (id) {
       this.productService.getProductById(id).subscribe((prodotto) => {
         this.product = prodotto;
       });
     }
+
+    this.cartService.cartItemCount$.subscribe(count => {
+      this.cartItemsCount = count;
+    });  
   }
 
   addToCart() {
     this.cartService.addProduct(this.product.id!);
+    this.cartItemsCount = this.cartService.cartItemCount;    
   }
 
 }
