@@ -58,7 +58,6 @@ export class CartService {
     this.cartItemsCountSubject.next(this.cartItemCount);
   }
 
-
   get cartItemCount(): number {
     return this.cartItems.reduce((total, item) => total + item.quantity, 0);
   }
