@@ -15,60 +15,43 @@ import { CommonModule } from '@angular/common';
 })
 export class CartPageComponent {
 
-products: Product[] = [];
-selectedId: string | null = null;
-cartItems: { id: string, quantity: number }[] = [];
+  selectedId: string | null = null;
+  cartItems: { product: Product, quantity: number }[] = [];
 
+  constructor(
+    private cartService: CartService,
+    private productService: ProductService
+  ) {}
 
-constructor(
-  private cartService: CartService,
-  private productService: ProductService
-) {}
+  ngOnInit() {
+    this.updateCartState();
+  }
 
-ngOnInit() {
-  this.cartItems = this.cartService.getProducts();
-  this.refreshCart();
-}
+  updateCartState() {
+    const rawItems = this.cartService.getProducts();
+    this.cartItems = [];
 
-prepareProducts() {
-  this.cartItems = this.cartService.getProducts();
-  this.products = []; // Clear before reloading
-
-  this.cartItems.forEach(item => {
-    this.productService.getProductById(item.id).subscribe(product => {
-      if (product) {
-        this.products.push(product);
-      }
+    rawItems.forEach(item => {
+      this.productService.getProductById(item.id).subscribe(product => {
+        if (product) {
+          this.cartItems.push({ product, quantity: item.quantity });
+        }
+      });
     });
-  });
-  
-}
+  }
 
-addProduct(id: string) {
-  this.cartService.addProduct(id);
-  this.cartItems = this.cartService.getProducts();
-  this.refreshCart();
-}
+  increaseProduct(id: string) {
+    this.cartService.addProduct(id);
+    this.updateCartState();
+  }
 
-deleteProduct(id: string) {
-  this.cartService.deleteProduct(id);
-  this.cartItems = this.cartService.getProducts();
-  this.refreshCart();
-}
+  decreaseProduct(id: string) {
+    this.cartService.deleteProduct(id);
+    this.updateCartState();
+  }
 
-refreshCart() {
-  this.products = []; // clear before re-adding
-
-  this.cartItems.forEach(item => {
-    this.productService.getProductById(item.id).subscribe(product => {
-        this.products.push(product);
-    });
-  });
-}
-
-getQuantity(id: string): number {
-  const item = this.cartItems.find(i => i.id === id);
-  return item ? item.quantity : 0;
-}
+  getTotalPrice(): number {
+    return this.cartItems.reduce((total, item) => total + item.product.price! * item.quantity, 0);
+  }
 
 }
