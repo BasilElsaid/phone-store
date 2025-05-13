@@ -6,56 +6,61 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
 
-  private readonly STORAGE_KEY = 'cartProductIds';
-  private cartProductIds: string[] = [];
+  private readonly STORAGE_KEY = 'cartItems';
   private cartItemsCountSubject = new BehaviorSubject<number>(0);
   public cartItemCount$ = this.cartItemsCountSubject.asObservable();
+
+  private cartItems: { id: string, quantity: number }[] = [];
+
 
   constructor() {
     this.loadFromLocalStorage();
   }
 
   addProduct(id: string) {
-    this.cartProductIds.push(id);
+    const item = this.cartItems.find(i => i.id === id);
+    if (item) {
+      item.quantity++;
+    } else {
+      this.cartItems.push({ id, quantity: 1 });
+    }
     this.saveToLocalStorage();
-    this.refreshCount();
   }
 
-  getProducts(): string[] {
-    return [...this.cartProductIds];
+  getProducts(): { id: string, quantity: number }[] {
+    return [...this.cartItems];
   }
 
   clearCart() {
-    this.cartProductIds = [];
+    this.cartItems = [];
     this.saveToLocalStorage();
-    this.refreshCount();
   }
 
   deleteProduct(id: string) {
-    const index = this.cartProductIds.indexOf(id);
-    if (index > -1) {
-      this.cartProductIds.splice(index, 1);
-      this.saveToLocalStorage();
-      this.refreshCount();
+    const item = this.cartItems.find(i => i.id === id);
+    if (item) {
+      item.quantity--;
+      if (item.quantity <= 0) {
+        this.cartItems = this.cartItems.filter(i => i.id !== id);
+      }
+    this.saveToLocalStorage();
     }
   }
 
   private saveToLocalStorage() {
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.cartProductIds));
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.cartItems));
+    this.cartItemsCountSubject.next(this.cartItemCount);
   }
 
   private loadFromLocalStorage() {
     const stored = localStorage.getItem(this.STORAGE_KEY);
-    this.cartProductIds = stored ? JSON.parse(stored) : [];
-    this.refreshCount();
+    this.cartItems = stored ? JSON.parse(stored) : [];
+    this.cartItemsCountSubject.next(this.cartItemCount);
   }
 
-  private refreshCount() {
-    this.cartItemsCountSubject.next(this.cartProductIds.length);
-  }
 
   get cartItemCount(): number {
-    return this.cartProductIds.length;
+    return this.cartItems.reduce((total, item) => total + item.quantity, 0);
   }
   
 }

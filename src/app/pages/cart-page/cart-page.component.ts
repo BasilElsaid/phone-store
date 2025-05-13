@@ -15,9 +15,9 @@ import { CommonModule } from '@angular/common';
 })
 export class CartPageComponent {
 
-cartProductIds: string[] = [];
 products: Product[] = [];
 selectedId: string | null = null;
+cartItems: { id: string, quantity: number }[] = [];
 
 
 constructor(
@@ -26,30 +26,49 @@ constructor(
 ) {}
 
 ngOnInit() {
+  this.cartItems = this.cartService.getProducts();
   this.refreshCart();
 }
 
 prepareProducts() {
-  this.cartProductIds.forEach(id => {
-    this.productService.getProductById(id).subscribe(product => {
-      this.products.push(product);
+  this.cartItems = this.cartService.getProducts();
+  this.products = []; // Clear before reloading
+
+  this.cartItems.forEach(item => {
+    this.productService.getProductById(item.id).subscribe(product => {
+      if (product) {
+        this.products.push(product);
+      }
     });
   });
+  
+}
+
+addProduct(id: string) {
+  this.cartService.addProduct(id);
+  this.cartItems = this.cartService.getProducts();
+  this.refreshCart();
 }
 
 deleteProduct(id: string) {
   this.cartService.deleteProduct(id);
+  this.cartItems = this.cartService.getProducts();
   this.refreshCart();
 }
 
 refreshCart() {
-  this.cartProductIds = this.cartService.getProducts();
   this.products = []; // clear before re-adding
-  this.cartProductIds.forEach(id => {
-    this.productService.getProductById(id).subscribe(product => {
-      this.products.push(product);
+
+  this.cartItems.forEach(item => {
+    this.productService.getProductById(item.id).subscribe(product => {
+        this.products.push(product);
     });
   });
+}
+
+getQuantity(id: string): number {
+  const item = this.cartItems.find(i => i.id === id);
+  return item ? item.quantity : 0;
 }
 
 }
