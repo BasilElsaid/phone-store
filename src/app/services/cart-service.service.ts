@@ -47,6 +47,7 @@ export class CartService {
   private loadFromLocalStorage() {
     const stored = localStorage.getItem(this.STORAGE_KEY);
     this.cartProductIds = stored ? JSON.parse(stored) : [];
+    this.refreshCount();
   }
 
   private refreshCount() {
