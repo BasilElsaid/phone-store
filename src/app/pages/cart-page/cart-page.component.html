@@ -1,7 +1,7 @@
-<div class="container p-3">
+<div class="container p-5 limit-width">
 
     <!-- BACK TO PRODUCTS -->
-    <div class="col my-3">
+    <div class="col my-1">
         <button type="button" class="btn btn-outline-primary"
         [routerLink]="['/products']">Back To Products</button>
     </div>
@@ -26,35 +26,42 @@
                 <h3>Quantity</h3>
             </div>
         </div>
-
-        <hr>
-        
-        <div class="d-flex flex-row justify-content-between mx-2" *ngFor="let prodotto of products">
-            <div class="col-8 p-2" >
-                <app-product-card 
-                [productCard]="prodotto"
-                [selectedProductId]="selectedId"
-                [showDetailsButton]="false"
-                >
-                </app-product-card>
-            </div>
-            <div class="col-4 p-2 text-center d-flex flex-column align-items-center justify-content-evenly">
-                <h4>
-                    {{getQuantity(prodotto.id!)}}
-                </h4>
-                <div>
-                    <button type="button" class="btn btn-outline-danger mx-2" (click)="deleteProduct(prodotto.id!)" appDarkModeBackground>
-                        <strong>-</strong>
-                    </button>
-                    <button type="button" class="btn btn-outline-success mx-2" (click)="addProduct(prodotto.id!)" appDarkModeBackground>
-                        <strong>+</strong>
-                    </button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <hr>
+
+    <div class="container rounded-4 py-3" appDarkModeBackground>
+        <div *ngFor="let prodotto of products; let i = index">
+            <div class="d-flex flex-row justify-content-between mx-2 my-4">
+
+                <!-- THE CARD-->
+                <div class="col-8 col-md-6 col-lg-4 d-flex mx-auto">
+                    <app-product-card 
+                    [productCard]="prodotto"
+                    [selectedProductId]="selectedId"
+                    [showDetailsButton]="false">
+                    </app-product-card>
+                </div>
+
+                <!-- QUANTITY AND ADD, REMOVE BUTTONS-->
+                <div class="col-4 p-2 text-center d-flex flex-column align-items-center justify-content-evenly">
+                    <h4>{{ getQuantity(prodotto.id!) }}</h4>
+                    <div>
+                        <button type="button" class="btn btn-outline-danger mx-2" (click)="deleteProduct(prodotto.id!)" appDarkModeBackground>
+                            <strong>-</strong>
+                        </button>
+                        <button type="button" class="btn btn-outline-success mx-2" (click)="addProduct(prodotto.id!)" appDarkModeBackground>
+                            <strong>+</strong>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <hr *ngIf="i < products.length - 1">
+        </div>
+    </div>
+
+    <br>
 
     <!-- CART FLOATING BUTTON -->
     <div class="container row text-center">

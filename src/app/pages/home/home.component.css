@@ -2,3 +2,7 @@
     text-decoration: none;
     color: inherit; /* or any custom color like black, white, etc. */
   }
+
+.limit-width {
+  max-width: 800px;
+}

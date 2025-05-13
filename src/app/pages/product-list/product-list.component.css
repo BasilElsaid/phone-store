@@ -1,6 +1,6 @@
 .cart-icon {
-    bottom: 20px; 
-    right: 20px; 
+    bottom: 25px; 
+    right: 25px; 
     z-index: 1050;
     font-size: 24px;
 }
@@ -14,4 +14,8 @@
 
 .cart-count-icon {
     font-size: 14px;
+}
+
+.limit-width {
+  max-width: 1000px;
 }
