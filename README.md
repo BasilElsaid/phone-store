@@ -6,7 +6,7 @@ Un'applicazione web responsive sviluppata con **Angular**, che simula un negozio
 
 ## Demo
 
-[Live Demo](https://basilelsaid.github.io/phone-store/)
+...
 
 ---
 
