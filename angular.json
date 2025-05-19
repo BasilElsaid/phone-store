@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "self-angular-1": {
+    "phone-store": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "self-angular-1:build:production"
+              "buildTarget": "phone-store:build:production"
             },
             "development": {
-              "buildTarget": "self-angular-1:build:development"
+              "buildTarget": "phone-store:build:development"
             }
           },
           "defaultConfiguration": "development"
