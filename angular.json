@@ -15,7 +15,6 @@
           "options": {
             "outputPath": "dist/phone-store",
             "index": "src/index.html",
-            "baseHref": "/phone-store/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
