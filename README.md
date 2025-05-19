@@ -6,7 +6,7 @@ Un'applicazione web responsive sviluppata con **Angular**, che simula un negozio
 
 ## Demo
 
-...
+in corso..
 
 ---
 

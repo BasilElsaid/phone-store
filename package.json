@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postbuild": "mv dist/phone-store/browser/* dist/phone-store/ && rm -r dist/phone-store/browser"
   },
   "private": true,
   "dependencies": {
