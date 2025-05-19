@@ -6,7 +6,7 @@ Un'applicazione web responsive sviluppata con **Angular**, che simula un negozio
 
 ## Demo
 
-in corso..
+[Live Demo](https://phone-store-seven-nu.vercel.app/home)
 
 ---
 
