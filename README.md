@@ -15,7 +15,7 @@ Un'applicazione web responsive sviluppata con **Angular**, che simula un negozio
 - **Angular** – Framework front-end
 - **Bootstrap** – Styling responsivo
 - **TypeScript** – Tipizzazione
-- **GitHub Pages** – Deploy statico
+- **Vercel** – Deploy statico e hosting
 - **Firebase Realtime Database** – Database
 
 ---
