@@ -1,11 +1,11 @@
-<header>
+<header [appDarkModeBackground]="'navbar-footer'">
     <app-navbar></app-navbar>
 </header>
 
-<main>
+<main [appDarkModeBackground]="'body'">
     <router-outlet></router-outlet>
 </main>
 
-<footer>
+<footer [appDarkModeBackground]="'navbar-footer'">
     <app-footer></app-footer>
 </footer>
