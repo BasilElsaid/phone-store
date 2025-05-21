@@ -6,24 +6,24 @@
     <!-- Conditionally render button -->
     <div *ngIf="showDetailsButton" class="text-center mt-2">
       <button class="btn btn-primary" (click)="showDetails()">
-        {{selectedProductId === productCard.id ? 'Hide Details' : 'Show Details'}}
+        Show Details
       </button>
     </div>
 
     <!-- ADMIN BUTTONS-->
-     
-    <div *ngIf="showUpdateButton" class="text-center mt-2">
-      <button class="btn btn-primary" (click)="showUpdate()">
-        Update
-      </button>
-    </div>
+     <ng-container>
+        <div *ngIf="showUpdateButton" class="text-center mt-2">
+          <button class="btn btn-primary" (click)="showUpdate()">
+            Update
+          </button>
+        </div>
 
-    <div *ngIf="showDeleteButton" class="text-center mt-2">
-      <button class="btn btn-primary" (click)="showDelete()">
-        Delete
-      </button>
-    </div>
+        <div *ngIf="showDeleteButton" class="text-center mt-2">
+          <button class="btn btn-primary" (click)="showDelete()">
+            Delete
+          </button>
+        </div>
+     </ng-container>
 
-    <!-- UNTIL HERE-->
   </div>
 </div>

@@ -24,26 +24,39 @@
     </div>
     
     <div class="p-4 m-5 rounded-5" appDarkModeBackground="default">
+
         <!--CARDS-->
         <div class="row d-flex justify-content-evenly g-3">
-            <div class="col-12 col-md-6 col-lg-4" *ngFor="let product of filteredProducts">
-                <app-product-card 
-                [productCard]="product"
-                [selectedProductId]="selectedId"
-                [showDetailsButton]="true"
-                (toggle)="onToggle($event)"
-                >
-                </app-product-card>
-            </div>
+            <ng-container *ngFor="let product of filteredProducts">
+                <div class="col-12 col-md-6 col-lg-4" >
+                    <app-product-card 
+                    [productCard]="product"
+                    [selectedProductId]="selectedId"
+                    [showDetailsButton]="true"
+                    (toggle)="onToggle($event)"
+                    >
+                    </app-product-card>
+                </div>
+            </ng-container>
         </div>
-        <!--DETAILS-->  
-        <div class="row" *ngIf="selectedProduct">
-            <div class="col-12">
-                <app-product-details
-                [product]="selectedProduct">
-                </app-product-details>
+    
+        <!--DETAILS-->
+        <ng-container *ngIf="selectedProduct">
+            <!-- BACKDROP -->
+            <div
+                class="position-fixed top-0 start-0 w-100 h-100 backdrop" (click)="closeAlert()"
+            ></div>
+            <!-- ALERT -->
+            <div *ngIf="selectedProduct" class="alert alert-dismissible fade show fixed-top m-3 shadow alert-centered" role="alert" appDarkModeBackground="default">
+                <div class="col-12">
+                    <app-product-details
+                    [product]="selectedProduct">
+                    </app-product-details>
+                </div>
+                <button type="button" class="btn-close" aria-label="Close" (click)="closeAlert()"></button>
             </div>
-        </div>
+        </ng-container>
+
     </div>
       
     <!-- Cart Icon Button -->
