@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { Product } from '../../../models/product-model';
 import { DarkModeService } from '../../../services/dark-mode-service.service';
 import { CartService } from '../../../services/cart-service.service';
+import { DarkModeBackgroundDirective } from '../../../directives/dark-mode-background.directive';
 
 @Component({
   selector: 'app-product-details',
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, DarkModeBackgroundDirective],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })
@@ -25,9 +26,5 @@ export class ProductDetailsComponent {
     this.cartService.addProduct(this.product.id!);
   }
 
-  isDarkMode(){
-    return this.darkModeService.isDarkMode();
-  }
 
-  
 }

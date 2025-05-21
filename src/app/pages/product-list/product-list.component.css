@@ -19,3 +19,28 @@
 .limit-width {
   max-width: 1000px;
 }
+
+.alert-centered {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    z-index: 1050;
+}
+
+.backdrop {
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1040;
+}
+
+@media screen and (max-width: 600px){
+  .alert-centered {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    z-index: 1050;
+  }
+}

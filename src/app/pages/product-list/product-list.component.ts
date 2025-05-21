@@ -67,4 +67,8 @@ export class ProductListComponent {
     return this.products.filter(phone => phone.brand === 'Apple');
   }
 
+  closeAlert(): void {
+    this.selectedId = null;
+  }
+
 }
