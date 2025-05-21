@@ -15,7 +15,7 @@
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Filter
               </button>  
-             <ul class="dropdown-menu" appDarkModeBackground>
+             <ul class="dropdown-menu" appDarkModeBackground="dropdown">
                 <li><a class="dropdown-item" (click)="setFilter('All')">All</a></li>
                 <li><a class="dropdown-item" (click)="setFilter('Apple')">Apple</a></li>
                 <li><a class="dropdown-item" (click)="setFilter('Android')">Android</a></li>
@@ -23,7 +23,7 @@
         </div>
     </div>
     
-    <div class="p-4 m-5 rounded-5" appDarkModeBackground>
+    <div class="p-4 m-5 rounded-5" appDarkModeBackground="default">
         <!--CARDS-->
         <div class="row d-flex justify-content-evenly g-3">
             <div class="col-12 col-md-6 col-lg-4" *ngFor="let product of filteredProducts">
