@@ -9,6 +9,7 @@ export class DarkModeBackgroundDirective {
 
   @Input('appDarkModeBackground') modeType:
     | 'navbar-footer'
+    | 'nav-links'
     | 'body'
     | 'dropdown'
     | 'default' = 'default';
@@ -44,33 +45,34 @@ export class DarkModeBackgroundDirective {
 
     switch (this.modeType) {
       case 'navbar-footer':
-        this.toggleClasses(isDark, 'bg-dark', 'bg-light', 'text-dark', 'text-light');
+        this.toggleClasses(isDark, 'bg-dark', 'bg-light');
+        this.toggleClasses(isDark, 'text-light', 'text-dark');
+        break;
+      case 'nav-links':
+        this.toggleClasses(isDark, 'text-light', 'text-dark');
         break;
       case 'body':
-        this.toggleClasses(isDark, 'bg-black', 'bg-white', 'text-dark', 'text-light');
+        this.toggleClasses(isDark, 'bg-black', 'bg-white');
+        this.toggleClasses(isDark, 'text-light', 'text-dark');
         break;
       case 'dropdown':
-        this.toggleClasses(isDark, 'bg-secondary-subtle', 'bg-secondary.bg-gradient', 'text-dark', 'text-light');
+        this.toggleClasses(isDark, 'bg-secondary-subtle', 'bg-secondary.bg-gradient');
+        this.toggleClasses(isDark, 'text-light', 'text-dark');
         break;
       default:
-        this.toggleClasses(isDark, 'bg-dark', 'bg-light', 'text-dark', 'text-light');
+        this.toggleClasses(isDark, 'bg-dark', 'bg-light');
+        this.toggleClasses(isDark, 'text-light', 'text-dark');
     }
   }
 
     private toggleClasses(
-      isDark: boolean, 
-      darkClass: string, lightClass: string, 
-      darkText: string, lightText: string) {
+      isDark: boolean, darkClass: string, lightClass: string) {
     if (isDark) {
       this.renderer.addClass(this.el.nativeElement, darkClass);
       this.renderer.removeClass(this.el.nativeElement, lightClass);
-      this.renderer.addClass(this.el.nativeElement, lightText);
-      this.renderer.removeClass(this.el.nativeElement, darkText);
     } else {
       this.renderer.addClass(this.el.nativeElement, lightClass);
       this.renderer.removeClass(this.el.nativeElement, darkClass);
-      this.renderer.addClass(this.el.nativeElement, darkText);
-      this.renderer.removeClass(this.el.nativeElement, lightText);
     }
   }
 

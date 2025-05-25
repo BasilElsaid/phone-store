@@ -23,7 +23,7 @@
         </div>
     </div>
     
-    <div class="p-4 m-5 rounded-5" appDarkModeBackground="default">
+    <div class="p-4 m-5 rounded-5" [appDarkModeBackground]="'default'">
 
         <!--CARDS-->
         <div class="row d-flex justify-content-evenly g-3">
@@ -47,7 +47,7 @@
                 class="position-fixed top-0 start-0 w-100 h-100 backdrop" (click)="closeAlert()"
             ></div>
             <!-- ALERT -->
-            <div *ngIf="selectedProduct" class="alert alert-dismissible fade show fixed-top p-4 shadow alert-centered" role="alert" appDarkModeBackground="default">
+            <div *ngIf="selectedProduct" class="alert alert-dismissible fade show fixed-top p-4 shadow alert-centered" role="alert" [appDarkModeBackground]="'default'">
                 <div class="col-12">
                     <app-product-details
                     [product]="selectedProduct">

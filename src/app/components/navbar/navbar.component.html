@@ -3,7 +3,7 @@
 
       <!--LOGO-->
       <a class="navbar-brand" [routerLink]="['/home']">
-        <i class="bi bi-house" [ngClass]="isDarkMode() ? 'text-light' : ''"></i>
+        <i class="bi bi-house" [appDarkModeBackground]="'nav-links'"></i>
       </a>
 
       <!-- Toggle Button for Mobile View -->
@@ -15,22 +15,22 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto" [ngClass]="isDarkMode() ? 'dark-links' : ''">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/about']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'dark-links' : ''">About</a>
+            <a class="nav-link" [routerLink]="['/about']" routerLinkActive="router-link-active" [appDarkModeBackground]="'nav-links'">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/products']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'dark-links' : ''">Products</a>
+            <a class="nav-link" [routerLink]="['/products']" routerLinkActive="router-link-active" [appDarkModeBackground]="'nav-links'">Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/cart']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'dark-links' : ''">Cart</a>
+            <a class="nav-link" [routerLink]="['/cart']" routerLinkActive="router-link-active" [appDarkModeBackground]="'nav-links'">Cart</a>
           </li>
 
           <!--ADMIN BUTTONS-->
           <ng-container>
             <li class="nav-item" *ngIf="!checkAdminAccess()">
-              <a class="nav-link" [routerLink]="['/adminUnlock']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'dark-links' : ''">Admin</a>
+              <a class="nav-link" [routerLink]="['/adminUnlock']" routerLinkActive="router-link-active" [appDarkModeBackground]="'nav-links'">Admin</a>
             </li>
             <li class="nav-item" *ngIf="checkAdminAccess()">
-              <a class="nav-link" [routerLink]="['/admin/dashboard']" routerLinkActive="router-link-active" [ngClass]="isDarkMode() ? 'dark-links' : ''">Admin Area</a>
+              <a class="nav-link" [routerLink]="['/admin/dashboard']" routerLinkActive="router-link-active" [appDarkModeBackground]="'nav-links'">Admin Area</a>
             </li>
           </ng-container>
 
@@ -40,7 +40,7 @@
           <ul class="navbar-nav">
             <ng-container>
               <li>
-                <a class="nav-link" (click)="toggleDark()" *ngIf="isDarkMode()">
+                <a class="nav-link text-light" (click)="toggleDark()" *ngIf="isDarkMode()">
                   <i class="bi bi-brightness-high-fill"></i>
                 </a>
                 <a class="nav-link" (click)="toggleDark()" *ngIf="!isDarkMode()">
