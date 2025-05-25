@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
+import { DarkModeBackgroundDirective } from '../../../directives/dark-mode-background.directive';
 
 @Component({
   selector: 'app-admin-unlock',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DarkModeBackgroundDirective],
   templateUrl: './admin-unlock.component.html',
   styleUrl: './admin-unlock.component.css'
 })
