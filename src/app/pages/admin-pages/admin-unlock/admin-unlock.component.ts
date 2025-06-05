@@ -12,21 +12,34 @@ import { DarkModeBackgroundDirective } from '../../../directives/dark-mode-backg
   styleUrl: './admin-unlock.component.css'
 })
 export class AdminUnlockComponent {
-  password: string = '';
-  errorMessage: string = '';
+
+  email: string | undefined;
+  password: string | undefined;
 
   constructor(
-    private authService: AuthService, 
-    private router: Router
-  ) {}
+    private router: Router, 
+    private authService: AuthService
+  ){}
 
-  onSubmit(): void {
-    if (this.authService.isAdmin(this.password)) {
-      alert('Correct password!');
-      localStorage.setItem('isAdmin', this.password);
-      this.router.navigate(['admin/dashboard']);
-    } else {
-      alert('Incorrect password');
-    }
+  onSubmit() : void {
+      if (this.email && this.password) {
+      this.authService.signIn(this.email!, this.password!).subscribe((data: any) => {
+        console.log(data);
+
+        const expirationDate = new Date(new Date().getTime() + data.expiresIn * 1000);
+        this.authService.createUser(data.email, data.localId, data.idToken, expirationDate);
+        localStorage.setItem('user', JSON.stringify(this.authService.user));
+
+        console.log(this.authService.user);
+
+        alert("Operazione effettuata con successo");
+        this.router.navigateByUrl("user/dashboard");
+      }, error => {
+        alert("Login failed. Please check your credentials.");
+      });
+      } else {
+        alert("Email/Password are required");
+      }
   }
+
 }

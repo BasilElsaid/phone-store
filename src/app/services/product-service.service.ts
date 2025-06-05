@@ -2,16 +2,18 @@ import { Injectable } from '@angular/core';
 import { Product } from '../models/product-model';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private urlFirebaseProdotti: string = "https://phone-store-6310f-default-rtdb.europe-west1.firebasedatabase.app/phones"
+  private urlFirebaseProdotti: string = "https://phone-store-6310f-default-rtdb.europe-west1.firebasedatabase.app/phones";
 
   constructor(
-    private http: HttpClient) 
+    private http: HttpClient,
+    private authService: AuthService)
     {}
 
 
@@ -34,21 +36,24 @@ export class ProductService {
   }
 
   insertProdotto(body: {}) {
+    const token = this.authService.user?.token;
     return this.http.post(
-      `${this.urlFirebaseProdotti}.json`,
+      `${this.urlFirebaseProdotti}.json?auth=${token}`,
       body
     );
   }
   
   deleteProdotto(id: string) {
+    const token = this.authService.user?.token;
     return this.http.delete(
-      `${this.urlFirebaseProdotti}/${id}.json`
+      `${this.urlFirebaseProdotti}/${id}.json?auth=${token}`
     );
   }
   
   updateProdotto(id: string, body: {}) {
+    const token = this.authService.user?.token;
     return this.http.patch(
-      `${this.urlFirebaseProdotti}/${id}.json`,
+      `${this.urlFirebaseProdotti}/${id}.json?auth=${token}`,
       body
     );
   }
