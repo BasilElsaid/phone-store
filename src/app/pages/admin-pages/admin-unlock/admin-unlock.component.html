@@ -1,24 +1,20 @@
 <div class="container min-vh-100 ">
   <div class="p-4 my-4 d-flex flex-column rounded-4" [appDarkModeBackground]="'default'">
-    <h2 class="text-center">Unlock Admin Access</h2>
+    <h2 class="text-center text-danger">Unlock Admin Access</h2>
     <form (ngSubmit)="onSubmit()">
       <div class="mb-3">
+
+        <label for="email" class="form-label">Enter Admin Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required/>
+
+        <br>
+
         <label for="password" class="form-label">Enter Admin Password</label>
-        <input
-          type="password"
-          class="form-control"
-          id="password"
-          [(ngModel)]="password"
-          name="password"
-          required
-        />
+        <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required/>
       </div>
   
       <button type="submit" class="btn btn-primary">Submit</button>
-  
-      <div *ngIf="errorMessage" class="text-danger mt-3">
-        {{ errorMessage }}
-      </div>
+
     </form>
   </div>
 

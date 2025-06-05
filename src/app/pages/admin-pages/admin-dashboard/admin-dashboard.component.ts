@@ -5,6 +5,7 @@ import { Product } from '../../../models/product-model';
 import { ProductService } from '../../../services/product-service.service';
 import { ProductCardComponent } from '../../../components/products-components/product-card/product-card.component';
 import { DarkModeBackgroundDirective } from '../../../directives/dark-mode-background.directive';
+import { AuthService } from '../../../services/auth.service';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class AdminDashboardComponent {
 
   constructor(
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ){}
 
   ngOnInit(): void {
@@ -52,6 +54,12 @@ export class AdminDashboardComponent {
         }
       });
     }
+  }
+
+  logOut(){
+    localStorage.removeItem('isAdmin');
+    this.authService.signOut?.();
+    this.router.navigate(['/home']);
   }
 
 }
