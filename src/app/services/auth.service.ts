@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private readonly API_KEY = 'AIzaSyBzkPhcdyNQM_HepY51WFDLMRU5ljI3x4E';
+  private readonly API_KEY = environment.firebaseApiKey;
   private signInUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.API_KEY}`;
 
   private _user: User | null = null;
